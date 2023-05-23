@@ -1,9 +1,5 @@
 (() => {
-  // TweetLength = (e) => {
-  //   document.getElementById('textLength').innerHTML =
-  //     '文字数 : ' + e.length + '/160';
-  // };
-
+  // 文字入力後に発火する関数
   TweetLength = (e) => {
     // カウント数を格納する変数
     let count = 0;
@@ -21,6 +17,13 @@
     }
 
     document.getElementById('textLength').innerHTML =
-      '文字数 : ' + count/2 + '/140';
+      '文字数 : ' + count / 2 + '/140';
+
+    // countが280より大きい時はカウント表示を赤文字。280以下なら黒文字に戻す
+    if (count > 280) {
+      document.getElementById('textLength').classList.add("textRed");
+    } else {
+      document.getElementById('textLength').classList.remove('textRed');
+    }
   };
 })();
