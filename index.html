@@ -1,15 +1,30 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Twitter Draft:Twitterの下書きツール</title>
-  <meta name="description" content="Twitterの下書き用ツールです。文字数カウントや一時保存など必要機能だけを備えたシンプルなツールです。">
-  <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-  
-  <script src="./index.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Twitter Draft:Twitterの下書きツール</title>
+    <meta
+      name="description"
+      content="Twitterの下書き用ツールです。文字数カウントや一時保存など必要機能だけを備えたシンプルなツールです。"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <form action="">
+      <textarea
+        name="textarea"
+        id="textarea"
+        rows="10"
+        cols="64"
+        placeholder="ここにツイート文を入力ください"
+        onkeyup="TweetLength(value)"
+        class="textarea"
+      ></textarea>
+    </form>
+    <p id="textLength">文字数 : 0/160</p>
+
+    <script src="./index.js"></script>
+  </body>
 </html>
