@@ -1,21 +1,20 @@
-// import { initializeApp } from 'firebase/app';
+import { initializeApp } from 'firebase/app';
 // import { getAnalytics } from 'firebase/analytics';
-// import { getAuth } from 'firebase/auth';
-// import { GoogleAuthProvider } from 'firebase/auth';
+import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 
-// const firebaseConfig = {
-//   apiKey: process.env.TWITTERDRAFT_FIREBASE_apiKey,
-//   authDomain: process.env.TWITTERDRAFT_FIREBASE_authDomain,
-//   projectId: process.env.TWITTERDRAFT_FIREBASE_projectId,
-//   storageBucket: process.env.TWITTERDRAFT_FIREBASE_storageBucket,
-//   messagingSenderId: process.env.TWITTERDRAFT_FIREBASE_messagingSenderId,
-//   appId: process.env.TWITTERDRAFT_FIREBASE_appId,
-//   measurementId: process.env.TWITTERDRAFT_FIREBASE_measurementId,
-// };
+const firebaseConfig = {
+  apiKey: process.env.REACT_APP_FIREBASE_apiKey,
+  authDomain: process.env.REACT_APP_FIREBASE_authDomain,
+  projectId: process.env.REACT_APP_FIREBASE_projectId,
+  storageBucket: process.env.REACT_APP_FIREBASE_storageBucket,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_messagingSenderId,
+  appId: process.env.REACT_APP_FIREBASE_appId,
+  measurementId: process.env.REACT_APP_FIREBASE_measurementId,
+};
 
-// const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
-// const auth = getAuth(app);
-// const provider = new GoogleAuthProvider();
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider ();
 
-// export { auth, provider };
+export { auth, provider };
