@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
+import { db } from '../firebase';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 export const Form = () => {
   const [isActive, setIsActive] = useState();
   const [count, setCount] = useState(0);
+  const [inputText, setInputText] = useState('');
 
+  // 文字数カウント関数
   const countHandler = (e) => {
     let valLen = e.currentTarget.value.length; // 文字列の長さを取得
     let countNum = 0; // カウントした文字数を変数へ代入
@@ -21,7 +25,7 @@ export const Form = () => {
 
     setCount(countNum);
 
-    // countが140より大きい時はカウント表示を赤文字。280以下なら黒文字に戻す
+    // countが140より大きい時はカウント表示を赤文字。140以下なら黒文字に戻す
     if (countNum > 140) {
       setIsActive(true);
     } else {
@@ -29,9 +33,26 @@ export const Form = () => {
     }
   };
 
+  // 下書きをサーバに保存
+  const onSubmitAdd = async (e) => {
+    e.preventDefault();
+
+    if (inputText === '') return;
+
+    try {
+      await addDoc(collection(db, 'drafts'), {
+        text: inputText,
+        timestamp: serverTimestamp(),
+      });
+      setInputText('');
+    } catch (e) {
+      console.error('Error adding document: ', e);
+    }
+  };
+
   return (
     <>
-      <form action="">
+      <form onSubmit={onSubmitAdd} id="textarea">
         <textarea
           name="textarea"
           id="textarea"
@@ -40,11 +61,19 @@ export const Form = () => {
           placeholder="ここにツイート文を入力ください"
           className={`textarea ${isActive ? 'textRed' : ''}`}
           onKeyUp={countHandler}
+          onChange={(e) => setInputText(e.target.value)}
+          value={inputText}
         />
       </form>
+      <button type="submit" form="textarea">
+        保存
+      </button>
       <p id="textLength" className={`textarea ${isActive ? 'textRed' : ''}`}>
         文字数 : {count}/140
       </p>
+      <div>
+        <div>下書きを表示</div>
+      </div>
     </>
   );
 };
