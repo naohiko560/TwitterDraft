@@ -1,18 +1,26 @@
 import { useState, useEffect } from 'react';
 import { db } from '../firebase';
-import { collection, query, onSnapshot, orderBy } from 'firebase/firestore';
+import {
+  collection,
+  query,
+  onSnapshot,
+  orderBy,
+  doc,
+  deleteDoc,
+} from 'firebase/firestore';
 
 export const DraftList = () => {
-  const [drafts, setDrafts] = useState([{ id: '', text: '', timestamp: null }]);
+  const [drafts, setDrafts] = useState([{ id: '', text: '', createdAt: null }]);
 
+  // データ取得
   useEffect(() => {
-    const q = query(collection(db, 'drafts'), orderBy('timestamp', 'desc'));
+    const q = query(collection(db, 'drafts'), orderBy('createdAt', 'desc'));
     const unSub = onSnapshot(q, async (snapshot) => {
       setDrafts(
         snapshot.docs.map((doc) => ({
           id: doc.id,
           text: doc.data().text,
-          timestamp: doc.data().timestamp,
+          // createdAt: doc.data().createdAt,
         }))
       );
     });
@@ -22,12 +30,18 @@ export const DraftList = () => {
     };
   }, []);
 
+  // データ削除
+  const deleteItem = async (id) => {
+    await deleteDoc(doc(db, 'drafts', id));
+  };
+
   return (
     <>
       {drafts.map((draft) => (
         <div key={draft.id}>
           <p>{draft.text}</p>
-          <p>{new Date(draft.timestamp?.toDate()).toLocaleString()}</p>
+          <button onClick={() => deleteItem(draft.id)}>削除</button>
+          {/* <p>{new Date(draft.createdAt?.toDate()).toLocaleString()}</p> */}
         </div>
       ))}
     </>

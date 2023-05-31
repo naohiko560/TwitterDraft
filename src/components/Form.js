@@ -43,7 +43,7 @@ export const Form = () => {
     try {
       await addDoc(collection(db, 'drafts'), {
         text: inputText,
-        timestamp: serverTimestamp(),
+        createdAt: serverTimestamp(),
       });
       setInputText('');
     } catch (e) {

@@ -5,7 +5,6 @@ export const UserInfo = () => {
   return (
     <div className="userInfo">
       <img src={auth.currentUser.photoURL} alt="ユーザ情報" />
-      <p>{auth.currentUser.displayName}</p>
     </div>
   );
 }
