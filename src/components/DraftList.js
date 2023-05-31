@@ -42,6 +42,7 @@ export const DraftList = () => {
           <p>{draft.text}</p>
           <button onClick={() => deleteItem(draft.id)}>削除</button>
           {/* <p>{new Date(draft.createdAt?.toDate()).toLocaleString()}</p> */}
+          
         </div>
       ))}
     </>
