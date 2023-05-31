@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { db } from '../firebase';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { DraftList } from './DraftList';
 
 export const Form = () => {
   const [isActive, setIsActive] = useState();
@@ -72,7 +73,7 @@ export const Form = () => {
         文字数 : {count}/140
       </p>
       <div>
-        <div>下書きを表示</div>
+        <DraftList />
       </div>
     </>
   );
