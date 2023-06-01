@@ -59,7 +59,7 @@ export const Form = () => {
           id="textarea"
           rows="10"
           cols="64"
-          placeholder="ここにツイート文を入力ください"
+          placeholder="ここに下書きを入力してください"
           className={`textarea ${isActive ? 'textRed' : ''}`}
           onKeyUp={countHandler}
           onChange={(e) => setInputText(e.target.value)}
