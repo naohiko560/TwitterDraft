@@ -1,11 +1,6 @@
 import { useState, useEffect } from 'react';
 import { db } from '../firebase';
-import {
-  collection,
-  query,
-  onSnapshot,
-  orderBy,
-} from 'firebase/firestore';
+import { collection, query, onSnapshot, orderBy } from 'firebase/firestore';
 import { Modal } from './Modal';
 import { DelModal } from './DelModal';
 
@@ -51,7 +46,9 @@ export const DraftList = () => {
     <>
       {drafts.map((draft) => (
         <div key={draft.id}>
-          <p>{draft.text}</p>
+          <div>
+            <textarea rows={10} cols={64} value={draft.text} />
+          </div>
           <button onClick={() => deleteItem(draft.id)}>削除</button>
           <button onClick={() => editItem(draft)}>編集</button>
           {/* <p>{new Date(draft.createdAt?.toDate()).toLocaleString()}</p> */}
