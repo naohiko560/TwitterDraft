@@ -5,16 +5,16 @@ import {
   query,
   onSnapshot,
   orderBy,
-  doc,
-  deleteDoc,
 } from 'firebase/firestore';
 import { Modal } from './Modal';
+import { DelModal } from './DelModal';
 
 export const DraftList = () => {
   const [drafts, setDrafts] = useState([{ id: '', text: '', createdAt: null }]);
   const [show, setShow] = useState(false);
   const [id, setId] = useState(null);
   const [edit, setEdit] = useState(null);
+  const [delmol, setDelmol] = useState(false);
 
   // データ取得
   useEffect(() => {
@@ -34,9 +34,10 @@ export const DraftList = () => {
     };
   }, []);
 
-  // データ削除
+  // データ削除の確認
   const deleteItem = async (id) => {
-    await deleteDoc(doc(db, 'drafts', id));
+    setDelmol(true);
+    setId(id);
   };
 
   // データ編集
@@ -57,6 +58,7 @@ export const DraftList = () => {
         </div>
       ))}
       <Modal show={show} setShow={setShow} id={id} edit={edit} />
+      <DelModal delmol={delmol} setDelmol={setDelmol} id={id} />
     </>
   );
 };
