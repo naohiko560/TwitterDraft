@@ -60,13 +60,13 @@ export const Form = () => {
           rows="10"
           cols="64"
           placeholder="ここに下書きを入力してください"
-          className={`textarea ${isActive ? 'textRed' : ''}`}
+          className={`border resize-none textarea ${isActive ? 'textRed' : ''}`}
           onKeyUp={countHandler}
           onChange={(e) => setInputText(e.target.value)}
           value={inputText}
         />
       </form>
-      <button type="submit" form="textarea">
+      <button className="button" type="submit" form="textarea">
         保存
       </button>
       <p id="textLength" className={`textarea ${isActive ? 'textRed' : ''}`}>

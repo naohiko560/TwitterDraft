@@ -45,9 +45,14 @@ export const DraftList = () => {
   return (
     <>
       {drafts.map((draft) => (
-        <div key={draft.id}>
+        <div key={draft.id} className="border-solid border-2 max-w-xl mt-5 m-auto py-5">
           <div>
-            <textarea rows={10} cols={64} value={draft.text} />
+            <textarea
+              className="border resize-none outline-none"
+              rows={6}
+              cols={64}
+              value={draft.text}
+            />
           </div>
           <button onClick={() => deleteItem(draft.id)}>削除</button>
           <button onClick={() => editItem(draft)}>編集</button>
