@@ -64,7 +64,9 @@ export const Modal = (props) => {
                 id="textarea-modal"
                 rows="10"
                 cols="64"
-                className={`textarea ${isActive ? 'textRed' : ''}`}
+                className={`border resize-none textarea ${
+                  isActive ? 'textRed' : ''
+                }`}
                 onKeyUp={countHandler}
                 onChange={(e) => setInputText(e.target.value)}
                 defaultValue={props.edit}
@@ -77,7 +79,7 @@ export const Modal = (props) => {
               文字数 : {count}/140
             </p>
             <p>
-              <button type="submit" form="textarea-modal">
+              <button type="submit" className="button" form="textarea-modal">
                 保存
               </button>
             </p>
