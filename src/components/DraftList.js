@@ -48,7 +48,7 @@ export const DraftList = () => {
         <div key={draft.id} className="border-solid border-2 max-w-xl mt-5 m-auto py-5">
           <div>
             <textarea
-              className="border resize-none outline-none"
+              className="border resize-none outline-none p-10"
               rows={6}
               cols={64}
               value={draft.text}
