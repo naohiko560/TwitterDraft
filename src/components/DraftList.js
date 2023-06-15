@@ -5,9 +5,12 @@ import { Modal } from './Modal';
 import { DelModal } from './DelModal';
 
 export const DraftList = () => {
-  const [drafts, setDrafts] = useState([{ id: '', text: '', createdAt: null }]);
+  const [drafts, setDrafts] = useState([
+    { id: '', text: '', uid: '', createdAt: null },
+  ]);
   const [show, setShow] = useState(false);
   const [id, setId] = useState(null);
+  const [uid, setUid] = useState(null);
   const [edit, setEdit] = useState(null);
   const [delmol, setDelmol] = useState(false);
 
@@ -19,6 +22,7 @@ export const DraftList = () => {
         snapshot.docs.map((doc) => ({
           id: doc.id,
           text: doc.data().text,
+          uid: doc.data().uid,
           // createdAt: doc.data().createdAt,
         }))
       );
@@ -40,6 +44,7 @@ export const DraftList = () => {
     setShow(true);
     setId(draft.id);
     setEdit(draft.text);
+    setUid(draft.uid);
   };
 
   return (
@@ -59,7 +64,7 @@ export const DraftList = () => {
           {/* <p>{new Date(draft.createdAt?.toDate()).toLocaleString()}</p> */}
         </div>
       ))}
-      <Modal show={show} setShow={setShow} id={id} edit={edit} />
+      <Modal show={show} setShow={setShow} id={id} edit={edit} uid={uid} />
       <DelModal delmol={delmol} setDelmol={setDelmol} id={id} />
     </>
   );

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { db } from '../firebase';
+import { db, auth } from '../firebase';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { DraftList } from './DraftList';
 
@@ -43,6 +43,7 @@ export const Form = () => {
     try {
       await addDoc(collection(db, 'drafts'), {
         text: inputText,
+        uid: auth.currentUser.uid,
         createdAt: serverTimestamp(),
       });
       setInputText('');

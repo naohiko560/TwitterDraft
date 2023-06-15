@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { db } from '../firebase';
+import { db, auth } from '../firebase';
 import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
 
 export const Modal = (props) => {
@@ -42,6 +42,7 @@ export const Modal = (props) => {
     try {
       await setDoc(doc(db, 'drafts', props.id), {
         text: inputText,
+        uid: auth.currentUser.uid,
         createdAt: serverTimestamp(),
       });
       closeModal();
