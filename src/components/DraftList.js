@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { db } from '../firebase';
+import { db, auth } from '../firebase';
 import { collection, query, onSnapshot, orderBy } from 'firebase/firestore';
 import { Modal } from './Modal';
 import { DelModal } from './DelModal';
@@ -50,18 +50,25 @@ export const DraftList = () => {
   return (
     <>
       {drafts.map((draft) => (
-        <div key={draft.id} className="border-solid border-2 max-w-xl mt-5 m-auto py-5">
-          <div>
-            <textarea
-              className="border resize-none outline-none p-10"
-              rows={6}
-              cols={64}
-              value={draft.text}
-            />
+        <div
+          className={`msg ${
+            draft.uid === auth.currentUser.uid ? '' : 'hidden'
+          }`}
+          key={draft.id}
+        >
+          <div className="border-solid border-2 max-w-xl mt-5 m-auto py-5">
+            <div>
+              <textarea
+                className="border resize-none outline-none p-10"
+                rows={6}
+                cols={64}
+                value={draft.text}
+              />
+            </div>
+            <button onClick={() => deleteItem(draft.id)}>削除</button>
+            <button onClick={() => editItem(draft)}>編集</button>
+            {/* <p>{new Date(draft.createdAt?.toDate()).toLocaleString()}</p> */}
           </div>
-          <button onClick={() => deleteItem(draft.id)}>削除</button>
-          <button onClick={() => editItem(draft)}>編集</button>
-          {/* <p>{new Date(draft.createdAt?.toDate()).toLocaleString()}</p> */}
         </div>
       ))}
       <Modal show={show} setShow={setShow} id={id} edit={edit} uid={uid} />
