@@ -1,12 +1,12 @@
 # TwitterDraft
-Reactで制作したX（旧Twitter）の下書きツールです。
+Reactで制作したX（旧Twitter）の下書きツールです。  
 文字数のカウントと下書き保存ができます。
 
 ## 制作の動機
 Reactについて学ぶ為、欲しい機能を実装したX（旧Twitter）の下書き用ツールを作成しようと考えました。
 
 # URL
-https://github.com/naohiko560/TwitterDraft
+https://twitterdraft.nhackblog.com/  
 Googleアカウントでログインすることで保存機能が使えます。
 
 # 使用技術
