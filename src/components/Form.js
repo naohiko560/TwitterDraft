@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { db, auth } from '../firebase';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { DraftList } from './DraftList';
+import { SignOutButton } from './SignOutButton';
 
 export const Form = () => {
   const [isActive, setIsActive] = useState();
@@ -54,7 +55,7 @@ export const Form = () => {
 
   return (
     <>
-      <form onSubmit={onSubmitAdd} id="textarea">
+      <form onSubmit={onSubmitAdd} id="textarea" className='mt-5'>
         <textarea
           name="textarea"
           id="textarea"
@@ -70,6 +71,7 @@ export const Form = () => {
       <button className="button" type="submit" form="textarea">
         保存
       </button>
+      <SignOutButton />
       <p id="textLength" className={`textarea ${isActive ? 'textRed' : ''}`}>
         文字数 : {count}/140
       </p>

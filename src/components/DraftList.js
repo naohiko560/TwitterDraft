@@ -50,13 +50,8 @@ export const DraftList = () => {
   return (
     <>
       {drafts.map((draft) => (
-        <div
-          className={`msg ${
-            draft.uid === auth.currentUser.uid ? '' : 'hidden'
-          }`}
-          key={draft.id}
-        >
-          <div className="border-solid border-2 max-w-xl mt-5 m-auto py-5">
+        <div className={`msg ${draft.uid === auth.currentUser.uid ? '' : 'hidden'}`} key={draft.id}>
+          <div className="border-solid border-2 max-w-xl m-auto mt-5 mb-24 py-5">
             <div>
               <textarea
                 className="border resize-none outline-none p-10"

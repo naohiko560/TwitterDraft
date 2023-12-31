@@ -46,7 +46,7 @@ export const FormLogout = () => {
           value={inputText}
         />
       </form>
-      <p id="textLength" className={`textarea ${isActive ? 'textRed' : ''}`}>
+      <p id="textLength" className={`${isActive ? 'textRed' : ''}`}>
         文字数 : {count}/140
       </p>
     </>
