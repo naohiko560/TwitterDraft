@@ -61,7 +61,7 @@ export const DraftList = () => {
               />
             </div>
             <button onClick={() => deleteItem(draft.id)}>削除</button>
-            <button onClick={() => editItem(draft)}>編集</button>
+            <button onClick={() => editItem(draft)} className='ml-10'>編集</button>
             {/* <p>{new Date(draft.createdAt?.toDate()).toLocaleString()}</p> */}
           </div>
         </div>
