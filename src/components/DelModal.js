@@ -20,10 +20,14 @@ export const DelModal = (props) => {
             <p>下書きを削除しますか？</p>
             <p>※下書きを削除します。この操作は取り消せません。</p>
             <p>
-              <button onClick={deleteItem}>削除</button>
+              <button onClick={deleteItem} className="bg-red-700">
+                削除
+              </button>
             </p>
             <p>
-              <button onClick={closeModal}>キャンセル</button>
+              <button onClick={closeModal} className="bg-gray-500">
+                キャンセル
+              </button>
             </p>
           </div>
         </div>
