@@ -30,7 +30,7 @@ https://twitter-draft.vercel.app/
 
 | ログイン画面 | 保存した下書きリスト |
 | ---- | ---- |
-| ![ログイン画面](/docs/images/design_sign-in.png) | ![保存した下書きリスト](/docs/images/design_list.png) |
+| ![ログイン画面](/docs/images/design_sign_in.png) | ![保存した下書きリスト](/docs/images/design_list.png) |
 | グーグルで使用しているプロフィール画像と保存ボタン、サインアウトボタンが表示されます。 | 保存ボタンを押すと、上から新しい順に追加されていきます。 |
 
 | 削除の確認ポップアップ画面 | 編集画面 |
