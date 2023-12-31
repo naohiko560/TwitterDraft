@@ -6,7 +6,7 @@ Reactで制作したX（旧Twitter）の下書きツールです。
 Reactについて学ぶ為、欲しい機能を実装したX（旧Twitter）の下書き用ツールを作成しようと考えました。
 
 # URL
-https://twitter-draft.vercel.app/
+https://twitter-draft.vercel.app/  
 Googleアカウントでログインすることで保存機能が使えます。
 
 # 使用技術
