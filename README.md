@@ -1,11 +1,11 @@
-# TwitterDraft
+# X（旧Twitter）の下書きツール
 Reactで制作したX（旧Twitter）の下書きツールです。  
 文字数のカウントと下書き保存ができます。
 下書き保存はGoogleアカウントでログインすることで使えます。
 
 <br>
 
-# 制作物のURL
+## 制作物のURL
 https://twitter-draft.vercel.app/
 
 <br>
@@ -16,7 +16,7 @@ https://twitter-draft.vercel.app/
 
 <br>
 
-# 制作物のイメージ
+## 制作物のイメージ
 ![制作物のイメージ](/docs/images/app_view.gif)
 ※保存や編集、サインインといったポジティブなボタンは青色、削除やサインアウトといったネガティブなボタンは赤色、キャンセルボタンは灰色にしました。  
 色に規則性を持たせることで、ユーザーが直感的に操作できるようにしています。
@@ -40,7 +40,7 @@ https://twitter-draft.vercel.app/
 
 <br>
 
-# 使用技術
+## 使用技術
 | カテゴリ          | 技術スタック                                     |
 | ----------------- | --------------------------------------------------   |
 | フロントエンド          | JavaScript, React, tailwind CSS                       |
@@ -50,7 +50,7 @@ https://twitter-draft.vercel.app/
 
 <br>
 
-# 実装機能
+## 実装機能
 - 下書きの文字数カウント機能（140字より多い場合、赤文字になる）
 - Googleでのサインイン・サインアウト機能 ※Firebase Authentication を利用
 - サインイン時、下書きの保存・編集・削除ができる機能 ※Cloud Firestore を利用
