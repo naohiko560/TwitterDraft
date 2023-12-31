@@ -35,7 +35,7 @@ https://twitter-draft.vercel.app/
 
 | 削除の確認ポップアップ画面 | 編集画面 |
 | ---- | ---- |
-| ![削除の確認ポップアップ画面](/docs/images/design_popup-del.png) | ![編集画面](/docs/images/design_popup-hozon.png) |
+| ![削除の確認ポップアップ画面](/docs/images/design_popup_del.png) | ![編集画面](/docs/images/design_popup_hozon.png) |
 | 削除の際はポップアップを挟んで誤操作を防止します。キャンセルボタン or 灰色枠をクリックするとキャンセルされます。 | 保存した下書きを編集する時はポップアップ画面にて行います。 |
 
 <br>
