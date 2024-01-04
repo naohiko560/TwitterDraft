@@ -54,7 +54,7 @@ export const DraftListLogOut = () => {
           <div className="border-solid border-2 max-w-xl m-auto mt-5 mb-24 py-5">
             <div>
               <textarea
-                className="border resize-none outline-none p-10"
+                className="border resize-none outline-none p-10 w-full"
                 rows={6}
                 cols={64}
                 value={draft.text}
