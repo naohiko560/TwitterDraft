@@ -47,6 +47,7 @@ export const FormLogout = () => {
         createdAt: serverTimestamp(),
       });
       setInputText('');
+      setCount(0);
     } catch (e) {
       console.error('Error adding document: ', e);
     }
