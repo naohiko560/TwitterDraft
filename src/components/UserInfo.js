@@ -3,7 +3,7 @@ import { auth } from '../firebase';
 
 export const UserInfo = () => {
   return (
-    <div>
+    <div className='mt-5'>
       <img
         className="m-auto"
         src={auth.currentUser.photoURL}

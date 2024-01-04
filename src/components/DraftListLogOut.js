@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
-import { db, auth } from '../firebase';
+import { db } from '../firebase';
 import { collection, query, onSnapshot, orderBy } from 'firebase/firestore';
-import { Modal } from './Modal';
 import { DelModal } from './DelModal';
+import { ModalLogOut } from './ModalLogOut';
 
-export const DraftList = () => {
+export const DraftListLogOut = () => {
   const [drafts, setDrafts] = useState([
     { id: '', text: '', uid: '', createdAt: null },
   ]);
@@ -50,7 +50,7 @@ export const DraftList = () => {
   return (
     <>
       {drafts.map((draft) => (
-        <div className={`msg ${draft.uid === auth.currentUser.uid ? '' : 'hidden'}`} key={draft.id}>
+        <div className={`msg ${draft.uid === 'test' ? '' : 'hidden'}`} key={draft.id}>
           <div className="border-solid border-2 max-w-xl m-auto mt-5 mb-24 py-5">
             <div>
               <textarea
@@ -70,7 +70,7 @@ export const DraftList = () => {
           </div>
         </div>
       ))}
-      <Modal show={show} setShow={setShow} id={id} edit={edit} uid={uid} />
+      <ModalLogOut show={show} setShow={setShow} id={id} edit={edit} uid={uid} />
       <DelModal delmol={delmol} setDelmol={setDelmol} id={id} />
     </>
   );

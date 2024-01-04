@@ -9,7 +9,7 @@ export const SignInButton = () => {
   };
 
   return (
-    <button onClick={signInWithGoogle}>
+    <button onClick={signInWithGoogle} className="bg-green-700">
       <p>Googleでサインイン</p>
     </button>
   );

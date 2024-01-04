@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
-import { db, auth } from '../firebase';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
-import { DraftList } from './DraftList';
 
-export const Form = () => {
+export const FormLogoutOrigin = () => {
   const [isActive, setIsActive] = useState();
   const [count, setCount] = useState(0);
   const [inputText, setInputText] = useState('');
@@ -34,27 +31,9 @@ export const Form = () => {
     }
   };
 
-  // 下書きをサーバに保存
-  const onSubmitAdd = async (e) => {
-    e.preventDefault();
-
-    if (inputText === '') return;
-
-    try {
-      await addDoc(collection(db, 'drafts'), {
-        text: inputText,
-        uid: auth.currentUser.uid,
-        createdAt: serverTimestamp(),
-      });
-      setInputText('');
-    } catch (e) {
-      console.error('Error adding document: ', e);
-    }
-  };
-
   return (
     <>
-      <form onSubmit={onSubmitAdd} id="textarea" className="mt-10">
+      <form id="textarea">
         <textarea
           name="textarea"
           id="textarea"
@@ -67,15 +46,9 @@ export const Form = () => {
           value={inputText}
         />
       </form>
-      <button className="button" type="submit" form="textarea">
-        保存
-      </button>
-      <p id="textLength" className={`textarea ${isActive ? 'textRed' : ''}`}>
+      <p id="textLength" className={`${isActive ? 'textRed' : ''}`}>
         文字数 : {count}/140
       </p>
-      <div>
-        <DraftList />
-      </div>
     </>
   );
 };
